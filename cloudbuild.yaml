@@ -8,3 +8,4 @@ steps:
       - --runtime=python37
       - --entry-point=main
       - --trigger-http
+      - --allow-unauthenticated
