@@ -37,7 +37,8 @@ def get_list_of_handles():
     blob.download_to_filename(file_path)
 
     with open(file_path, "r") as read_file:
-        users = read_file.read().splitlines()
+        users_raw = read_file.read()
+        users = [x.strip() for x in users_raw.split('\n')]
         logging.info(f"Total number of Twitter handle to track: {len(users)}")
     return users
 
