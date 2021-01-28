@@ -23,8 +23,7 @@ def create_headers(bearer_token):
 
 
 def get_list_of_handles():
-    """
-    Fetches list of handles to track
+    """Fetches list of handles to track
     Returns:
         List of Twitter Handles
     """
@@ -44,8 +43,7 @@ def get_list_of_handles():
 
 
 def create_url(users):
-    """
-    Create GET endpoint to get handle information
+    """Create GET endpoint to get fetch handle information
     Args:
         users: List of twitter handles
 
@@ -61,8 +59,7 @@ def create_url(users):
 
 
 def connect_to_endpoint(url, headers):
-    """
-    Fetches latest information of a Twitter handle
+    """Fetches latest information of a Twitter handle
     Args:
         url: URL to make a GET call
         headers: Headers need for authentication
@@ -81,8 +78,7 @@ def connect_to_endpoint(url, headers):
 
 
 def update_in_firestore(data):
-    """
-    Update latest handle info in Google Firestore
+    """Update latest handle details in Google Firestore
     Args:
         data: Dictionary containing list of tweets
 
@@ -95,7 +91,7 @@ def update_in_firestore(data):
     logging.info("Updating user profiles...")
     for user_info in data['data']:
         user_info['last_updated'] = datetime.datetime.now()
-        db.collection('tb-handles').document(user_info['username']).set(user_info)
+        db.collection(('tb-handles',)).document(user_info['username']).set(user_info)
     logging.info("Update completed")
 
 
