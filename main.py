@@ -91,7 +91,7 @@ def update_in_firestore(data):
     logging.info("Updating user profiles...")
     for user_info in data['data']:
         user_info['last_updated'] = datetime.datetime.now()
-        db.collection(('tb-handles',)).document(user_info['username']).set(user_info)
+        db.collection(u'tb-handles').document(user_info['username']).set(user_info)
     logging.info("Update completed")
 
 
