@@ -103,3 +103,8 @@ def main(request):
     json_response = connect_to_endpoint(url, headers)
     update_in_firestore(json_response)
     return "Success"
+
+
+# # To test in local
+# if __name__ == '__main__':
+#     main("test")
